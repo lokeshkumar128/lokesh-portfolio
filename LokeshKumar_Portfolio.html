@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>R Lokesh Kumar | QA Automation Engineer</title>
+<meta name="description" content="QA Automation Engineer with 3+ years of experience in Playwright, Selenium, TestNG and CI/CD across fintech, telecom and enterprise platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F7; --surface:#FFFFFF; --ink:#13202B; --muted:#51616E; --line:#D5DDE3;
+  --pass:#14804F; --pass-bg:#E2F3EA; --accent:#1B4F8F; --warn:#9A6200;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E161D; --surface:#16212B; --ink:#E8EEF3; --muted:#9BABB8; --line:#27343F;
+    --pass:#4CC98A; --pass-bg:#14301F; --accent:#7DB2F0; --warn:#E3B04B;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E161D; --surface:#16212B; --ink:#E8EEF3; --muted:#9BABB8; --line:#27343F;
+  --pass:#4CC98A; --pass-bg:#14301F; --accent:#7DB2F0; --warn:#E3B04B;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:700;margin-bottom:2rem}
+section{padding:4.5rem 0;border-top:1px solid var(--line)}
+header.top{position:sticky;top:0;z-index:5;background:var(--bg);padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.8rem;padding-bottom:.8rem}
+.brand{font:700 1.05rem var(--display);color:var(--ink);text-decoration:none}
+nav{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.95rem}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:4.5rem 0 4rem;border-top:0}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);font-weight:800}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34rem;margin:1.4rem 0 1.8rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.3rem;border-radius:8px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.run{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.run-head{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);font-weight:600}
+.run-head button{font:600 .9rem var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:6px;padding:.4rem .9rem;cursor:pointer}
+.run ul{list-style:none;margin:0;padding:.4rem 0}
+.run li{display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.1rem;font-size:.98rem}
+.run li + li{border-top:1px solid var(--line)}
+.st{font-weight:600;font-size:.9rem;padding:.15rem .6rem;border-radius:99px;background:var(--line);color:var(--muted);min-width:4.6rem;text-align:center}
+.st.ok{background:var(--pass-bg);color:var(--pass)}
+.run-foot{padding:.8rem 1.1rem;border-top:1px solid var(--line);font-size:.92rem;color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p{margin:0 0 1rem;max-width:36rem}
+.facts{margin:0;display:grid;gap:1rem;align-content:start}
+.facts div{border-left:3px solid var(--pass);padding-left:1rem}
+.facts dt{font-weight:600}
+.facts dd{margin:0;color:var(--muted)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem 2.5rem}
+.skills h3{font-size:1.1rem;margin-bottom:.6rem;color:var(--accent)}
+.skills p{margin:0;color:var(--muted)}
+
+/* experience */
+.job{display:grid;grid-template-columns:200px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0;padding-top:0}
+.job .when{color:var(--muted);font-size:.95rem}
+.job h3{font-size:1.35rem;font-weight:700}
+.job .co{color:var(--accent);font-weight:600;margin:.2rem 0 .8rem}
+.job .tech{font-size:.93rem;color:var(--muted);margin:0 0 .9rem}
+.job ul{margin:0;padding-left:1.2rem;max-width:44rem}
+.job li{margin-bottom:.55rem}
+
+/* projects */
+.proj{display:grid;gap:1.2rem}
+.p{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.6rem;display:grid;grid-template-columns:1fr 1.2fr;gap:1.5rem}
+.p h3{font-size:1.25rem;margin-bottom:.4rem}
+.p .role{color:var(--muted);font-size:.93rem;margin:0}
+.p ul{margin:.2rem 0 0;padding-left:1.1rem}
+.p li{margin-bottom:.4rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
+.chips span{font-size:.85rem;padding:.15rem .65rem;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+
+/* certs & contact */
+.certs{columns:2;column-gap:3rem;padding:0;margin:0;list-style:none}
+.certs li{break-inside:avoid;padding:.35rem 0;border-bottom:1px solid var(--line)}
+.certs small{color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact .big{font:700 clamp(1.4rem,3vw,2rem) var(--display);word-break:break-word}
+.contact .big a{color:var(--ink)}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
+
+@media (max-width:820px){
+  .hero .wrap,.about,.contact,.p{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:.6rem}
+  .certs{columns:1}
+  nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">R Lokesh Kumar</a>
+  <nav aria-label="Sections"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>I automate the testing so releases ship with confidence.</h1>
+    <p class="lead">QA Automation Engineer with 3+ years across fintech, telecom, insurance and enterprise analytics. I build Playwright and Selenium suites that run every night and tell the team the truth about each build.</p>
+    <div class="cta"><a class="btn primary" href="#contact">Get in touch</a><a class="btn" href="#projects">See my work</a></div>
+  </div>
+  <aside class="run" aria-label="Sample nightly regression run">
+    <div class="run-head"><span>Nightly regression</span><button id="runBtn" type="button">Run suite</button></div>
+    <ul id="suites">
+      <li><span>Smoke and sanity</span><span class="st">Queued</span></li>
+      <li><span>API regression</span><span class="st">Queued</span></li>
+      <li><span>Web UI regression</span><span class="st">Queued</span></li>
+      <li><span>Reports sent to S3</span><span class="st">Queued</span></li>
+    </ul>
+    <div class="run-foot" id="runFoot">700+ automated API and UI tests, run nightly in Jenkins and Azure DevOps.</div>
+  </aside>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <h2>About</h2>
+  <div class="about">
+    <div>
+      <p>I test complete flows, from the front end through backend services to third-party systems. Most recently I worked on CDAX and FIJI, an HP customer data analytics and telemetry platform, where I built the FIJI Playwright framework from scratch and kept a 700+ test regression suite healthy.</p>
+      <p>Earlier, I tested Verizon order management, plan change and billing flows, and cross-border money-transfer apps for Canada and Singapore. When a build fails, I work out whether it is a flaky script, a pipeline issue or a real defect.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Automation</dt><dd>Playwright (Java, TypeScript), Selenium WebDriver, TestNG, Cucumber</dd></div>
+      <div><dt>Pipelines</dt><dd>Jenkins, Azure DevOps, AWS CodeBuild, Maven</dd></div>
+      <div><dt>Domains</dt><dd>Banking, fintech, insurance, telecom, e-commerce</dd></div>
+      <div><dt>Education</dt><dd>B.Tech, Vemu Institute of Technology, JNTU (2017)</dd></div>
+    </dl>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="when">May 2025 – Oct 2026</div>
+    <div>
+      <h3>Automation Test Engineer</h3>
+      <div class="co">Birlasoft Ltd</div>
+      <p class="tech">CDAX and FIJI, HP enterprise customer data analytics and telemetry platform. Java, TypeScript, Selenium, Playwright, Angular, Jenkins, Azure DevOps, AWS, GitHub.</p>
+      <ul>
+        <li>Maintained nightly regression pipelines of 700+ API and Web UI tests in Jenkins and Azure DevOps, triaging failures into flaky scripts, pipeline issues and genuine defects.</li>
+        <li>Built the FIJI portal Playwright framework in Java and TypeScript from scratch, using auto-waiting to improve stability and shorten feedback cycles.</li>
+        <li>Used Playwright codegen with an MCP server to record flows, then refactored them into reusable, maintainable scripts.</li>
+        <li>Designed modular components and end-to-end scenarios across the UI and API layers of CDAX.</li>
+        <li>Ran smoke and sanity suites on every build and coordinated SIT, UAT, regression and production cycles.</li>
+        <li>Built an AWS CodeBuild workflow triggered from EC2, with reports verified in S3 and integrated into the CI/CD pipeline.</li>
+        <li>Reviewed peer code, raised pull requests, and reported defects with steps, screenshots and logs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Aug 2024 – Dec 2024</div>
+    <div>
+      <h3>Senior Software Test Engineer</h3>
+      <div class="co">Wipro Limited</div>
+      <ul><li>Tested REST APIs in Postman, validating responses and JSON payloads, and reported the defects found.</li></ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Oct 2023 – Jun 2024</div>
+    <div>
+      <h3>Automation Test Engineer</h3>
+      <div class="co">FlexM Pvt Ltd</div>
+      <p class="tech">Steadfast, 6G Pay, JC Global, Kori, Zoober Pay, Vanex Pay. FireFlinks, Jira.</p>
+      <ul>
+        <li>Automated FireFlinks scripts for cross-border money-transfer products across mobile apps, customer portal and core portal.</li>
+        <li>Validated every new build against client Figma designs, catching functional and UI deviations before release.</li>
+        <li>Tested iOS and Android builds and logged defects in Jira with full reproduction details.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Jun 2022 – Sep 2022</div>
+    <div>
+      <h3>Automation Tester</h3>
+      <div class="co">Quess Corporation</div>
+      <p class="tech">Verizon order management system. Java, Selenium, TestNG, Jenkins, Jira.</p>
+      <ul>
+        <li>Built data-driven Selenium and TestNG scripts covering order creation, plan change and billing for wireless and broadband.</li>
+        <li>Tested integration across frontend, backend and third-party systems.</li>
+        <li>Scheduled nightly Jenkins runs for faster regression cycles.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Selected work</h2>
+  <div class="proj">
+    <article class="p">
+      <div><h3>FIJI Playwright framework</h3><p class="role">Birlasoft, CDAX and FIJI</p>
+        <div class="chips"><span>Playwright</span><span>Java</span><span>TypeScript</span><span>Angular</span></div></div>
+      <ul><li>Set up the framework structure and core workflow coverage from scratch.</li><li>Used auto-waiting to reduce flaky scripts and shorten feedback time.</li></ul>
+    </article>
+    <article class="p">
+      <div><h3>700+ test nightly regression</h3><p class="role">Birlasoft, CDAX</p>
+        <div class="chips"><span>Jenkins</span><span>Azure DevOps</span><span>REST APIs</span><span>Selenium</span></div></div>
+      <ul><li>API and Web UI suites running every night, with failures sorted into flaky, pipeline and real defects.</li><li>Smoke and sanity runs on each new build before handoff to manual QA.</li></ul>
+    </article>
+    <article class="p">
+      <div><h3>AI-assisted test authoring</h3><p class="role">Birlasoft, FIJI</p>
+        <div class="chips"><span>Playwright codegen</span><span>MCP server</span></div></div>
+      <ul><li>Recorded user flows with codegen through an MCP server.</li><li>Refactored the generated code into reusable scripts that the team can maintain.</li></ul>
+    </article>
+    <article class="p">
+      <div><h3>AWS CodeBuild test pipeline</h3><p class="role">Birlasoft, CDAX</p>
+        <div class="chips"><span>AWS EC2</span><span>CodeBuild</span><span>S3</span><span>CI/CD</span></div></div>
+      <ul><li>Triggered CodeBuild from an EC2 instance, verified test reports in S3 and plugged the flow into the existing pipeline.</li></ul>
+    </article>
+    <article class="p">
+      <div><h3>Verizon order, plan change and billing</h3><p class="role">Quess Corporation</p>
+        <div class="chips"><span>Selenium</span><span>TestNG</span><span>Jenkins</span></div></div>
+      <ul><li>Data-driven end-to-end scenarios for wireless and broadband services.</li><li>Reusable functions and better handling of dynamic elements and waits.</li></ul>
+    </article>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div><h3>Test automation</h3><p>Playwright (Java, TypeScript), Selenium WebDriver, TestNG, Cucumber BDD, FireFlinks, UiPath</p></div>
+    <div><h3>API testing</h3><p>REST APIs, Postman, JSON payload and HTTP status validation</p></div>
+    <div><h3>CI/CD and cloud</h3><p>Jenkins, Azure DevOps, Maven, AWS (EC2, CodeBuild, S3)</p></div>
+    <div><h3>Testing types</h3><p>Functional, regression, integration, end-to-end, SIT, UAT, smoke, sanity, production regression</p></div>
+    <div><h3>Languages and data</h3><p>Java, TypeScript, JavaScript, Python, SQL, PostgreSQL, Angular</p></div>
+    <div><h3>Practice</h3><p>Page Object Model, data-driven frameworks, Git workflows, Jira, Agile and Scrum, JMeter</p></div>
+  </div>
+</div></section>
+
+<section id="certifications"><div class="wrap">
+  <h2>Certifications</h2>
+  <ul class="certs">
+    <li>API Testing Using REST Assured <small>Coursera</small></li>
+    <li>API Testing with Karate Framework <small>Coursera</small></li>
+    <li>Foundations of Software Testing and Validation <small>University of Leeds</small></li>
+    <li>Introduction to Agile Development and Scrum <small>IBM</small></li>
+    <li>Agile with Atlassian Jira <small>Atlassian</small></li>
+    <li>Concepts in SQL <small>Coursera</small></li>
+    <li>MySQL with Information Technology <small>Coursera</small></li>
+    <li>Introduction to Python <small>Coursera</small></li>
+    <li>Modern Data Analytics in Microsoft Azure <small>Microsoft</small></li>
+    <li>UI RPA (UI Automation)</li>
+    <li>Postman API Testing</li>
+    <li>Performance Testing with JMeter</li>
+  </ul>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <div class="contact">
+    <p>I am open to QA automation roles. The fastest way to reach me is email or phone.</p>
+    <div>
+      <p class="big"><a href="mailto:lokeshkumar128.loky@gmail.com">lokeshkumar128.loky@gmail.com</a></p>
+      <p class="big"><a href="tel:+918297751128">+91 82977 51128</a></p>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 R Lokesh Kumar</div></footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('runBtn'),rows=document.querySelectorAll('#suites li'),foot=document.getElementById('runFoot');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,busy=false;
+  function set(i,txt,ok){var s=rows[i].querySelector('.st');s.textContent=txt;s.className='st'+(ok?' ok':'');}
+  btn.addEventListener('click',function(){
+    if(busy)return;busy=true;btn.disabled=true;
+    rows.forEach(function(_,i){set(i,'Queued',false)});
+    foot.textContent='Running…';
+    var i=0;
+    function step(){
+      if(i>0)set(i-1,'Passed',true);
+      if(i===rows.length){foot.textContent='All suites passed. Reports are ready for the team.';btn.disabled=false;btn.textContent='Run again';busy=false;return;}
+      set(i,'Running',false);i++;setTimeout(step,reduce?0:650);
+    }
+    step();
+  });
+})();
+</script>
+</body>
+</html>
